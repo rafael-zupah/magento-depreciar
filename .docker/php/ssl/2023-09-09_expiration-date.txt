@@ -1,0 +1,7 @@
+Os certificados foram feitos usando a ferramenta mkcert.
+Segundo o mkcert, a data de expiração dos certificados é de:
+
+It will expire on 9 September 2023
+
+Tutorial que segui: https://dockerwebdev.com/tutorials/docker-php-development/
+Ferramente utilizada: https://github.com/FiloSottile/mkcert

@@ -4,7 +4,7 @@ services:
 
   meece-php:
     build: ./.docker/php
-    container_name: magento-php
+    container_name: meece-php
     ports:
       - "443:443"
     tty: true

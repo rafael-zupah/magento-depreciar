@@ -10,16 +10,18 @@ ENV PHP_OPCACHE_VALIDATE_TIMESTAMPS="0" \
     PHP_OPCACHE_MAX_WASTED_PERCENTAGE="10"
 # Instalar Extensoes
 RUN apt-get update -y \
-    && apt-get install -y \
+    && apt-get install -y -qq \
         imagemagick libmagickwand-dev \
         libzip-dev zip libc-client-dev libkrb5-dev libxml2-dev supervisor \
         wget gnupg2 ca-certificates lsb-release apt-transport-https procps libbz2-dev \
         libgmp-dev libxslt-dev libpng-dev \
+        libjpeg62-turbo-dev libsodium-dev libfreetype6-dev \
     && docker-php-ext-configure imap --with-kerberos --with-imap-ssl \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install \
-        zip pdo_mysql imap opcache soap bz2 gmp intl xml xmlrpc xsl gd pcntl\
+        bcmath simplexml sockets zip pdo_mysql imap opcache soap bz2 gmp intl xml xmlrpc xsl gd pcntl\
     && pecl install redis msgpack uploadprogress \
-    && docker-php-ext-enable redis msgpack uploadprogress \
+    && docker-php-ext-enable bcmath gd intl pdo_mysql simplexml soap xsl zip sockets redis msgpack uploadprogress \
     && rm -r /var/lib/apt/lists/*;
     # imagem com "--disable-cgi"
 # Instalar e configurar o Xdebug

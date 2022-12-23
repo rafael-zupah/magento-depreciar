@@ -37,7 +37,7 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      #- ./.docker/mysql/data:/var/lib/mysql
+      - ./.docker/mysql/data:/var/lib/mysql
       - ./kalles/dumps:/tmp/dumps
     networks:
       - meece-network

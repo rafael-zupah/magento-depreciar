@@ -24,7 +24,7 @@ bash-mysql: ## Bash dentro do container PHP
 	docker exec -ti meece-mysql bash
 
 mysql: ## Entra direto no mysql do container
-	docker exec -ti meece-mysql mysql -proot
+	docker exec -ti meece-mysql mysql -uroot -proot
 
 rebuild: ## Deleta todas as imagens e containers e faz o build
 	make down || true

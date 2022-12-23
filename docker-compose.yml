@@ -4,18 +4,21 @@ services:
 
   meece-php:
     build: ./.docker/php
-    container_name: magento-php
+    container_name: meece-php
     ports:
       - "443:443"
+      - "80:80"
     tty: true
     volumes:
-      - .:/var/www/html
+      - ./kalles:/var/www/html
       - xdebug-data:/tmp/xdebug
     environment:
       XDEBUG_CONFIG: remote_connect_back=1 remote_port=9000 remote_enable=1 profiler_enable_trigger=1 profiler_output_dir=/tmp/xdebug
       PHP_IDE_CONFIG: serverName=dev.meece.com.br
       APPLICATION_ENV: development
       PHP_OPCACHE_VALIDATE_TIMESTAMPS: 1
+      #MAGENTO_USER:
+      #MAGENTO_PASS: 
     depends_on:
        - meece-mysql
        - meece-mailhog
@@ -26,7 +29,7 @@ services:
       - meece-network
 
   meece-mysql:
-    image: mysql:8.0
+    image: mysql:8.0.30
     container_name: meece-mysql
     restart: always
     environment:
@@ -34,8 +37,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql-data:/var/lib/mysql
-      - ./.docker/mysql/dumps:/var/lib/mysql/dumps
+      #- ./.docker/mysql/data:/var/lib/mysql
+      - ./kalles/dumps:/tmp/dumps
     networks:
       - meece-network
 

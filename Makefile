@@ -20,5 +20,13 @@ restart: ## Reinicia os containers do PHP e MYSQL
 bash: ## Bash dentro do container PHP
 	docker exec -ti meece-php bash
 
+bash-mysql: ## Bash dentro do container PHP
+	docker exec -ti meece-mysql bash
+
 mysql: ## Entra direto no mysql do container
 	docker exec -ti meece-mysql mysql -proot
+
+rebuild: ## Deleta todas as imagens e containers e faz o build
+	make down || true
+	docker-compose build --no-cache
+	make up

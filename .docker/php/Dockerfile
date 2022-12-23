@@ -36,7 +36,7 @@ COPY ./conf.d/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 RUN wget https://getcomposer.org/composer-1.phar \
     && chmod a+x composer-1.phar \
-    && sudo mv composer-1.phar /usr/local/bin/composer1;
+    && mv composer-1.phar /usr/local/bin/composer1;
 
 ARG imagemagic_config=/etc/ImageMagick-6/policy.xml
 RUN if [ -f $imagemagic_config ] ; then sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read|write" pattern="PDF" \/>/g' $imagemagic_config ; else echo did not see file $imagemagic_config ; fi

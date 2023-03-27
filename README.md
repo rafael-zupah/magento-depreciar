@@ -1,15 +1,27 @@
-# magento-243
-Magento Versão 2.4.3
+# instalação do ambiente de desenvolvimento magento
 
-**Criando base de dados**
+Magento Versão 2.4.6
+
+- template Kalles
+- modules
+    - multivendor
+    - stmp
+
+**Configure o domínio Zupah em seu OS**
 Configure o host dev.zupah.com.br em seu sistema operacional
+
+
 ***windows***
+  ```sh
 c:\windows\drivers\etc\hosts
 127.0.0.1 dev.zupah.com.br
+  ```
+
 ***linux***
+  ```sh
 /etc/hosts
 127.0.0.1 dev.zupah.com.br
-
+  ```
 **Criando base de dados**
   ```sh
     rsync -a root@loja.meece.com.br:/var/www/dump.tar.gz ./docker/mysql/dumps

@@ -8,6 +8,7 @@ Magento Versão 2.4.6
     - stmp
 
 **Configure o domínio Zupah em seu OS**
+
 Configure o host dev.zupah.com.br em seu sistema operacional
 
 
@@ -22,6 +23,12 @@ c:\windows\drivers\etc\hosts
 /etc/hosts
 127.0.0.1 dev.zupah.com.br
   ```
+
+**subindo docker**
+  ```sh
+    make up
+  ```
+
 **Criando base de dados**
   ```sh
     rsync -a root@loja.meece.com.br:/var/www/dump.tar.gz ./docker/mysql/dumps

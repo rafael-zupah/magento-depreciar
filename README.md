@@ -3,7 +3,10 @@ Magento Versão 2.4.3
 
 **Criando base de dados**
   ```sh
-    rsync -a root@loja.meece.com.br:/var/www/dump.sql ./docker/mysql/dumps
+    rsync -a root@loja.meece.com.br:/var/www/dump.tar.gz ./docker/mysql/dumps
+    cd ./docker/mysql/dumps
+    tar -xzf dump.tar.gz
+    cd ../../../
   ```
 
   ```sh

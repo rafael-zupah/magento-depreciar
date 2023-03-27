@@ -5,20 +5,20 @@ services:
   meece-php:
     build: ./.docker/php
     container_name: meece-php
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     ports:
       - "443:443"
       - "80:80"
     tty: true
     volumes:
-      - ./kalles:/var/www/html
+      - .:/var/www/html
       - xdebug-data:/tmp/xdebug
     environment:
-      XDEBUG_CONFIG: remote_connect_back=1 remote_port=9000 remote_enable=1 profiler_enable_trigger=1 profiler_output_dir=/tmp/xdebug
+      # XDEBUG_CONFIG: remote_enable=1 start_with_request=1 log_level=0 log=/dev/stdout output_dir=/tmp/xdebug idekey=docker mode=develop,coverage,debug,profile
       PHP_IDE_CONFIG: serverName=dev.meece.com.br
       APPLICATION_ENV: development
       PHP_OPCACHE_VALIDATE_TIMESTAMPS: 1
-      #MAGENTO_USER:
-      #MAGENTO_PASS: 
     depends_on:
        - meece-mysql
        - meece-mailhog
@@ -52,7 +52,7 @@ services:
       - meece-network
 
   meece-redis:
-    image: redis:6.0.16-alpine
+    image: redis:7.0.0-alpine
     container_name: meece-redis
     restart: unless-stopped
     ports:
@@ -62,13 +62,13 @@ services:
 
 
   meece-rabbitmq:
-    image: rabbitmq:3.8-management
+    image: rabbitmq:3.9-management
     container_name: meece-rabbitmq
     ports: 
       - 25672:25672 # (erlang) communication between the nodes and CLI tool
       - 15672:15672 # communication with the web management API 
     volumes:
-      - ./.docker/rabbitmq/data:/var/lib/rabbitmq/
+      - ./.docker/rabbitmq:/var/lib/rabbitmq/
     environment:
       - RABBITMQ_DEFAULT_USER=admin
       - RABBITMQ_DEFAULT_PASS=passw123
@@ -76,7 +76,7 @@ services:
         - meece-network
 
   meece-elasticsearch:
-      image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
+      image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
       container_name: meece-elasticsearch
       ports:
         - "9200:9200"

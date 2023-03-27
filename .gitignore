@@ -43,6 +43,7 @@ download.tar.gz
 kalles.tar.gz
 download/*
 kalles/*
+kalles.245/*
 
 # local
 composer-setup.php

@@ -16,7 +16,7 @@ return [
         'table_prefix' => '',
         'connection' => [
             'default' => [
-                'host' => 'meece-mysql',
+                'host' => 'zupah-mysql',
                 'dbname' => 'magento',
                 'username' => 'root',
                 'password' => 'root',
@@ -40,7 +40,7 @@ return [
     'session' => [
         'save' => 'redis',
         'redis' => [
-            'host' => 'meece-redis',
+            'host' => 'zupah-redis',
             'port' => '6379',
             'password' => '',
             'timeout' => '5',
@@ -70,7 +70,7 @@ return [
                 'id_prefix' => '69d_',
                 'backend' => 'Magento\\Framework\\Cache\\Backend\\Redis',
                 'backend_options' => [
-                    'server' => 'meece-redis',
+                    'server' => 'zupah-redis',
                     'database' => '0',
                     'port' => '6379',
                     'password' => '',
@@ -82,7 +82,7 @@ return [
                 'id_prefix' => '69d_',
                 'backend' => 'Magento\\Framework\\Cache\\Backend\\Redis',
                 'backend_options' => [
-                    'server' => 'meece-redis',
+                    'server' => 'zupah-redis',
                     'database' => '1',
                     'port' => '6379',
                     'password' => '',
@@ -119,7 +119,7 @@ return [
         'translate' => 1
     ],
     'downloadable_domains' => [
-        'dev.meece.com.br'
+        'dev.zupah.com.br'
     ],
     'install' => [
         'date' => 'Tue, 18 Oct 2022 17:43:55 +0000'

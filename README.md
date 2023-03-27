@@ -2,6 +2,15 @@
 Magento Versão 2.4.3
 
 **Criando base de dados**
+Configure o host dev.zupah.com.br em seu sistema operacional
+***windows***
+c:\windows\drivers\etc\hosts
+127.0.0.1 dev.zupah.com.br
+***linux***
+/etc/hosts
+127.0.0.1 dev.zupah.com.br
+
+**Criando base de dados**
   ```sh
     rsync -a root@loja.meece.com.br:/var/www/dump.tar.gz ./docker/mysql/dumps
     cd ./docker/mysql/dumps
@@ -34,10 +43,10 @@ Magento Versão 2.4.3
     mv html src
     cd src
     chmod 777 -R *
-    php bin/magento setup:store-config:set --base-url="http://dev.meece.com.br/"
-    php bin/magento setup:store-config:set --base-url-secure="https://dev.meece.com.br/"
+    php bin/magento setup:store-config:set --base-url="http://dev.zupah.com.br/"
+    php bin/magento setup:store-config:set --base-url-secure="https://dev.zupah.com.br/"
     bin/magento config:set catalog/search/engine 'elasticsearch7'
-    bin/magento config:set catalog/search/elasticsearch7_server_hostname 'meece-elasticsearch'
+    bin/magento config:set catalog/search/elasticsearch7_server_hostname 'zupah-elasticsearch'
     php bin/magento cache:flush
     php bin/magento indexer:reindex
     php bin/magento setup:upgrade

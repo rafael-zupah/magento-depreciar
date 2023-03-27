@@ -15,7 +15,8 @@ services:
       - .:/var/www/html
       - xdebug-data:/tmp/xdebug
     environment:
-      # XDEBUG_CONFIG: remote_enable=1 start_with_request=1 log_level=0 log=/dev/stdout output_dir=/tmp/xdebug idekey=docker mode=develop,coverage,debug,profile
+      XDEBUG_CONFIG: mode=debug
+      XDEBUG_MODE: debug
       PHP_IDE_CONFIG: serverName=dev.meece.com.br
       APPLICATION_ENV: development
       PHP_OPCACHE_VALIDATE_TIMESTAMPS: 1
@@ -38,7 +39,7 @@ services:
       - "3306:3306"
     volumes:
       - ./.docker/mysql/data:/var/lib/mysql
-      - ./kalles/dumps:/tmp/dumps
+      - ./.docker/mysql/dumps:/tmp/dumps
     networks:
       - meece-network
 

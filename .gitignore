@@ -27,23 +27,17 @@ TEST*.xml
 *.exe
 *.war
 
-vendor/*
 # docker-compose.yml
-tests/reports/
-tests/log/
-.docker/mysql/dumps/*
-!.docker/mysql/dumps/*.txt
 .docker/mysql/dumps/dump.sql
-.docker/mysql/dumps/_dump-portal.sql
-.docker/php/supervisord/*.conf
-.docker/data
-.docker/*
+.docker/mysql/dumps/dump.tar.gz
+.docker/mysql/data/*
+.docker/rabbitmq/*
+.docker/elasticsearch/*
 
-download.tar.gz
-kalles.tar.gz
+dump.tar.gz
+html.tar.gz
 download/*
-kalles/*
-kalles.245/*
+src/*
 
 # local
 composer-setup.php

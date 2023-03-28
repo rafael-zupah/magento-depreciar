@@ -53,7 +53,10 @@ c:\windows\drivers\etc\hosts
   ```sh
     rsync -a root@loja.meece.com.br:/var/www/html.tar.gz .
     tar -xzf html.tar.gz
-    cp zupah/app/etc html/app/etc
+    rm -f html/app/etc/env.php
+    rm -f html/bin/magento
+    cp zupah/app/etc/env.php html/app/etc
+    cp zupah/bin/magento html/bin
     ln -s /var/www/html/zupah/vendor/zupah zupah
     mv html src
     cd src

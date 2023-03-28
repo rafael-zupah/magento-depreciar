@@ -24,16 +24,17 @@ c:\windows\drivers\etc\hosts
 127.0.0.1 dev.zupah.com.br
   ```
 
-**subindo docker**
+**Subindo Docker**
   ```sh
     make up
   ```
 
 **Criando base de dados**
   ```sh
-    rsync -a root@loja.meece.com.br:/var/www/dump.tar.gz ./docker/mysql/dumps
-    cd ./docker/mysql/dumps
+    rsync -a root@loja.meece.com.br:/var/www/dump.tar.gz .docker/mysql/dumps
+    cd .docker/mysql/dumps
     tar -xzf dump.tar.gz
+    rm -f dump.tar.gz
     cd ../../../
   ```
 
@@ -50,18 +51,22 @@ c:\windows\drivers\etc\hosts
 
 **Instalando Magento no Servidor PHP**
   ```sh
-    make bash
-  ```
-
-  ```sh
-    cd /var/www/html
     rsync -a root@loja.meece.com.br:/var/www/html.tar.gz .
     tar -xzf html.tar.gz
     cp zupah/app/etc html/app/etc
     ln -s /var/www/html/zupah/vendor/zupah zupah
     mv html src
     cd src
-    chmod 777 -R *
+    sudo chmod 777 -R *
+    cd ../
+  ```
+
+  ```sh
+    make bash
+  ```
+
+  ```sh
+    cd /var/www/html/src
     php bin/magento setup:store-config:set --base-url="http://dev.zupah.com.br/"
     php bin/magento setup:store-config:set --base-url-secure="https://dev.zupah.com.br/"
     bin/magento config:set catalog/search/engine 'elasticsearch7'

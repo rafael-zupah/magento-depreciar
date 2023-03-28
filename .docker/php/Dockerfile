@@ -24,12 +24,12 @@ RUN apt-get update -y \
         bcmath simplexml sockets zip pdo_mysql imap opcache soap bz2 gmp intl xml xsl gd pcntl sodium\
     && pecl install redis \
     && docker-php-ext-enable bcmath gd intl pdo_mysql simplexml soap zip sockets redis xml xsl sodium \
-    && rm -r /var/lib/apt/lists/*;
+    && rm -r /var/lib/apt/lists/*
 
 
 # Instalar e configurar o Xdebug
 RUN pecl install xdebug-3.2.1 \
-    && docker-php-ext-enable xdebug;
+    && docker-php-ext-enable xdebug
 
 # Instalar e configurar o imagick
 RUN pecl install imagick \
@@ -40,7 +40,7 @@ COPY ./conf.d/90-xdebug.ini "${PHP_INI_DIR}/conf.d"
 
 # Instalar composer
 RUN  curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
-    && rm -rf /tmp/*;
+    && rm -rf /tmp/*
 
 ARG imagemagic_config=/etc/ImageMagick-6/policy.xml
 RUN if [ -f $imagemagic_config ] ; then sed -i 's/<policy domain="coder" rights="none" pattern="PDF" \/>/<policy domain="coder" rights="read|write" pattern="PDF" \/>/g' $imagemagic_config ; else echo did not see file $imagemagic_config ; fi

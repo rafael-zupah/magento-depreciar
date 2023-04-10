@@ -3,8 +3,8 @@
 Magento2 Marketplace Multi Seller module installation is very easy, please follow the steps for installation-
 
 1. Create link symbolic.
-cd src/vendor
-sudo ln -s ../../zupah/vendor/zupah/ zupah
+cd src/app/code
+sudo ln -s ../../../zupah/app/code/Zupah Zupah
 
 2 - Run Following Command via terminal
 -----------------------------------

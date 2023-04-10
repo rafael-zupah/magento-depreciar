@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Zupah Tech.
+ *
+ * @category  Zupah
+ * @package   Zupah_Marketplace
+ * @author    Zupah
+ * @copyright Copyright (c) Zupah (https://zupah.com.br)
+ * @license   https://zupah.com.br/license.html
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Zupah_Marketplace" />
+</config>

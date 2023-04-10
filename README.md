@@ -61,7 +61,11 @@ c:\windows\drivers\etc\hosts
     mv html src
     cd src
     sudo chmod 777 -R *
-    cd ../
+
+    cd app/code
+    sudo ln -s ../../../zupah/app/code/Zupah Zupah
+
+    cd ../../../
   ```
 
   ```sh

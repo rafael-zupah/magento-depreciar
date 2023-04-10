@@ -1,4 +1,0 @@
-Legend
-
-+ Features
-- Bugs

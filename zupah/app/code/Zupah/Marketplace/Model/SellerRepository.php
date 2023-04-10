@@ -123,7 +123,12 @@ class SellerRepository implements \Zupah\Marketplace\Api\SellerRepositoryInterfa
                 __('The seller with the "%1" ID doesn\'t exist.', $customerId)
             );
         }
-        return $model->getData();
+
+        #return ['result' => ($model->getData())];
+
+        #_debug($model->getData(), true);
+
+        return $model;
     }
 
     /**

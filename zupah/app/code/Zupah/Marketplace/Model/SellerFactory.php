@@ -2,7 +2,7 @@
 namespace Zupah\Marketplace\Model;
 
 /**
- * Factory class for @see \Webkul\Marketplace\Model\Seller
+ * Factory class for @see \Zupah\Marketplace\Model\Seller
  */
 class SellerFactory
 {
@@ -28,7 +28,7 @@ class SellerFactory
      */
     public function __construct(
         \Magento\Framework\ObjectManagerInterface $objectManager, 
-        $instanceName = '\\Webkul\\Marketplace\\Model\\Seller')
+        $instanceName = '\\Zupah\\Marketplace\\Model\\Seller')
     {
         $this->_objectManager = $objectManager;
         $this->_instanceName = $instanceName;
@@ -38,7 +38,7 @@ class SellerFactory
      * Create class instance with specified parameters
      *
      * @param array $data
-     * @return \Webkul\Marketplace\Model\Seller
+     * @return \Zupah\Marketplace\Model\Seller
      */
     public function create(array $data = [])
     {

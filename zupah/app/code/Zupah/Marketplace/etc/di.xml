@@ -12,6 +12,8 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
    
+   
+    <preference for="Zupah\Marketplace\Api\Data\SellerInterface" type="Zupah\Marketplace\Model\Seller"/>
     <preference for="Zupah\Marketplace\Api\SellerRepositoryInterface" type="Zupah\Marketplace\Model\SellerRepository"/>
     <preference for="Zupah\Marketplace\Api\Data\SellerSearchResultsInterface" type="Zupah\Marketplace\Model\SellerSearchResults"/>
     
